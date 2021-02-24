@@ -6,3 +6,5 @@ This [Legra.js](https://legrajs.com/) demo copied from from [legra-monalisa.glit
 ![MonaLego](./images/canvas-6.png)
 
 The test in [cypress/integration/spec.js](./cypress/integration/spec.js) changes the brick size and saves the produced Lego image as a local file.
+
+Related: [Fast legoization](https://glebbahmutov.com/blog/fast-legoization/)
