@@ -4,14 +4,17 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "serve public"
+    "test": "cypress open",
+    "start": "serve public",
+    "dev": "start-test 5000"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "devDependencies": {
+    "cypress": "6.5.0",
     "prettier": "2.2.1",
-    "serve": "11.3.2"
+    "serve": "11.3.2",
+    "start-server-and-test": "1.12.0"
   }
 }
