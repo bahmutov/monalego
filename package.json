@@ -1,8 +1,9 @@
 {
   "name": "monalego",
   "version": "1.0.0",
-  "description": "",
+  "description": "Visual testing for HTML canvas drawing",
   "main": "index.js",
+  "private": true,
   "scripts": {
     "test": "cypress open",
     "start": "serve public",
