@@ -1,0 +1,11 @@
+name: ci
+on: push
+jobs:
+  test:
+    runs-on: ubuntu-20.04
+    steps:
+      - name: Checkout 🛎
+        uses: actions/checkout@v2
+
+      - name: Run tests 🧪
+        uses: cypress-io/github-action@v2
