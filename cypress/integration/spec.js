@@ -41,8 +41,14 @@ describe('MonaLego', () => {
 
     // let's set the value
     cy.get('#range').invoke('val', 6).trigger('input')
+
     // how do we know when the Lego canvas has finished updating?
+    // https://github.com/pshihn/legra/issues/10
+    // for now 1 second wait seems to be enough
     cy.wait(1000)
+
+    // find the current brick size from the slider
+    // and download the generated canvas
     cy.get('#range').invoke('val').then(downloadViaDataUrl)
   })
 })
