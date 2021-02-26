@@ -22,4 +22,4 @@ jobs:
           name: images
           path: |
             cypress/screenshots
-            diff.png
+            *.png
