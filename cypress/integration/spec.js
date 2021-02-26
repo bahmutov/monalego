@@ -1,5 +1,11 @@
 /// <reference types="cypress" />
 
+// different ways of downloading the given canvas as an image
+// the simplest seems to grab the canvas
+// and use data url, then cy.writeFile(..., 'base64')
+
+// TODO: see if we can directly use the binary cy.writeFile(..., 'binary')
+
 const downloadByClicking = (blob, name) => {
   console.log('downloading image', name)
   // blob ready, download it
@@ -21,7 +27,32 @@ const downloadViaDataUrl = (brickValue) => {
     const url = $canvas[0].toDataURL()
     const data = url.replace(/^data:image\/png;base64,/, '')
     cy.writeFile(filename, data, 'base64')
+    cy.wrap(filename)
   })
+}
+
+const checkBrickValue = (value) => {
+  cy.wrap(value).should('be.gte', 6).and('be.lte', 24)
+
+  // let's set the value
+  cy.get('#range').invoke('val', value).trigger('input')
+
+  // how do we know when the Lego canvas has finished updating?
+  // https://github.com/pshihn/legra/issues/10
+  // for now a couple of seconds wait seems to be enough
+  cy.wait(2000)
+
+  // find the current brick size from the slider
+  // and download the generated canvas
+  cy.get('#range')
+    .invoke('val')
+    .then(downloadViaDataUrl)
+    .then((filename) => {
+      cy.log(`saved ${filename}`)
+      cy.task('compare', filename).should('deep.equal', {
+        match: true,
+      })
+    })
 }
 
 describe('MonaLego', () => {
@@ -37,18 +68,19 @@ describe('MonaLego', () => {
       .then(parseInt)
       .should('be.gte', 20)
 
-    cy.get('#range').invoke('val').then(downloadViaDataUrl)
+    cy.log('**default brick value**')
+    cy.get('#range')
+      .invoke('val')
+      .then(downloadViaDataUrl)
+      .then((filename) => {
+        cy.log(`saved ${filename}`)
+        cy.task('compare', filename).should('deep.equal', {
+          match: true,
+        })
+      })
 
-    // let's set the value
-    cy.get('#range').invoke('val', 6).trigger('input')
-
-    // how do we know when the Lego canvas has finished updating?
-    // https://github.com/pshihn/legra/issues/10
-    // for now 1 second wait seems to be enough
-    cy.wait(1000)
-
-    // find the current brick size from the slider
-    // and download the generated canvas
-    cy.get('#range').invoke('val').then(downloadViaDataUrl)
+    checkBrickValue(6)
+    checkBrickValue(8)
+    checkBrickValue(20)
   })
 })

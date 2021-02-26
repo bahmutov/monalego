@@ -14,6 +14,7 @@
   "license": "ISC",
   "devDependencies": {
     "cypress": "6.5.0",
+    "odiff-bin": "2.1.0",
     "prettier": "2.2.1",
     "serve": "11.3.2",
     "start-server-and-test": "1.12.0"
