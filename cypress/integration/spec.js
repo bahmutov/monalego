@@ -32,6 +32,7 @@ const downloadViaDataUrl = (brickValue) => {
 }
 
 const checkBrickValue = (value) => {
+  cy.log(`checking brick **${value}**`)
   cy.wrap(value).should('be.gte', 6).and('be.lte', 24)
 
   // let's set the value

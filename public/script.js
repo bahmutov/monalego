@@ -23,7 +23,7 @@ const loadImage = async (src) => {
 const drawMonalisa = async () => {
   try {
     const legra = new Legra(ctx, slider.value)
-    const url = 'mona-lisa.jpg'
+    const url = 'mona-lisa.png'
     const img = await loadImage(url)
     ctx.clearRect(0, 0, 600, 600)
     legra.drawImage(img, [0, 0])
