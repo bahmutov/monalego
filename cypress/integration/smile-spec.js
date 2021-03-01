@@ -28,6 +28,7 @@ describe('Lego face', () => {
       ({ match }) => match,
       {
         log: true,
+        timeout: 4000,
       },
     )
   })
