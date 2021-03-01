@@ -20,7 +20,7 @@ const checkBrickValue = (value) => {
     .then(downloadViaDataUrl)
     .then((filename) => {
       cy.log(`saved ${filename}`)
-      cy.task('compare', filename).should('deep.equal', {
+      cy.task('compare', { filename }).should('deep.equal', {
         match: true,
       })
     })
