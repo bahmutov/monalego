@@ -1,10 +1,11 @@
 /// <reference types="cypress" />
 import { downloadViaDataUrl } from './utils'
+import { recurse } from 'cypress-recurse'
 
 describe('Lego face', () => {
-  it('smiles broadly', () => {
+  it('smiles broadly with wait', () => {
     cy.visit('/smile')
-    cy.wait(1000)
+    cy.wait(4000)
 
     downloadViaDataUrl('smile').then((filename) => {
       cy.log(`saved ${filename}`)
@@ -12,5 +13,23 @@ describe('Lego face', () => {
         match: true,
       })
     })
+  })
+
+  it('smiles broadly', () => {
+    cy.visit('/smile')
+
+    recurse(
+      () => {
+        return downloadViaDataUrl('smile').then((filename) => {
+          cy.log(`saved ${filename}`)
+          return cy.task('compare', { filename })
+        })
+      },
+      ({ match }) => match,
+      {
+        log: true,
+        timeout: 4000,
+      },
+    )
   })
 })
