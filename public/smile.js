@@ -30,11 +30,6 @@ function drawNext() {
       // the last slide
       return
     }
-    // if (direction === 1 && smileY >= 22) {
-    //   direction = -1
-    // } else if (direction === -1 && smileY <= 13) {
-    //   direction = 1
-    // }
     drawNext()
   }, 150)
 }
