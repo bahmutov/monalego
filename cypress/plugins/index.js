@@ -1,5 +1,5 @@
 // @ts-check
-const { compareOdiff } = require('./diffs')
+const { compareOdiff, comparePixelmatch } = require('./diffs')
 const path = require('path')
 const os = require('os')
 
@@ -24,7 +24,8 @@ module.exports = (on, config) => {
       )
 
       const started = +new Date()
-      const result = await compareOdiff(baseImage, newImage, diffImage, options)
+      // const result = await compareOdiff(baseImage, newImage, diffImage, options)
+      const result = comparePixelmatch(baseImage, newImage, diffImage)
       const finished = +new Date()
       const elapsed = finished - started
       console.log('visual diff took %dms', elapsed)

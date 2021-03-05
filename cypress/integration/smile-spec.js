@@ -9,7 +9,9 @@ describe('Lego face', () => {
     downloadPng('good-smile.png')
   })
 
-  it.only('smiles broadly with wait', () => {
+  // this test passes but only because it waits a long time
+  // for the animation to be finished before taking the image
+  it('smiles broadly with wait', () => {
     cy.visit('/smile')
     cy.wait(4000)
 
@@ -21,7 +23,7 @@ describe('Lego face', () => {
     })
   })
 
-  it('smiles broadly', () => {
+  it.only('smiles broadly', () => {
     cy.visit('/smile')
 
     recurse(
