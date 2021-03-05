@@ -20,7 +20,7 @@ export const downloadViaDataUrl = (name, brickValue) => {
     const url = $canvas[0].toDataURL()
     const data = url.replace(/^data:image\/png;base64,/, '')
     cy.writeFile(filename, data, 'base64')
-    cy.wrap(filename)
+    return cy.wrap(filename)
   })
 }
 

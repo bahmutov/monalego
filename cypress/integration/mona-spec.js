@@ -17,7 +17,7 @@ const checkBrickValue = (value) => {
   // and download the generated canvas
   cy.get('#range')
     .invoke('val')
-    .then(downloadViaDataUrl)
+    .then((brickValue) => downloadViaDataUrl('canvas', brickValue))
     .then((filename) => {
       cy.log(`saved ${filename}`)
       cy.task('compare', { filename }).should('deep.equal', {
@@ -27,7 +27,7 @@ const checkBrickValue = (value) => {
 }
 
 describe('MonaLego', () => {
-  it.skip('renders Lego', () => {
+  it('renders Lego', () => {
     cy.visit('/')
     // let's confirm min and max
     cy.get('#range')
@@ -42,10 +42,10 @@ describe('MonaLego', () => {
     cy.log('**default brick value**')
     cy.get('#range')
       .invoke('val')
-      .then(downloadViaDataUrl)
+      .then((brickValue) => downloadViaDataUrl('canvas', brickValue))
       .then((filename) => {
         cy.log(`saved ${filename}`)
-        cy.task('compare', filename).should('deep.equal', {
+        cy.task('compare', { filename }).should('deep.equal', {
           match: true,
         })
       })
