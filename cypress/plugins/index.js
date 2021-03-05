@@ -1,4 +1,5 @@
-const { compare } = require('odiff-bin')
+// @ts-check
+const { compareOdiff } = require('./diffs')
 const path = require('path')
 const os = require('os')
 
@@ -21,17 +22,12 @@ module.exports = (on, config) => {
         baseImage,
         newImage,
       )
-      if (options) {
-        console.log('odiff options %o', options)
-      }
-      const started = +new Date()
 
-      const result = await compare(baseImage, newImage, diffImage, options)
+      const started = +new Date()
+      const result = await compareOdiff(baseImage, newImage, diffImage, options)
       const finished = +new Date()
       const elapsed = finished - started
-      console.log('odiff took %dms', elapsed)
-
-      console.log(result)
+      console.log('visual diff took %dms', elapsed)
       return result
     },
   })

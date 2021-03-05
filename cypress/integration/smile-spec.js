@@ -9,9 +9,9 @@ describe('Lego face', () => {
     downloadPng('good-smile.png')
   })
 
-  it('smiles broadly with wait', () => {
+  it.only('smiles broadly with wait', () => {
     cy.visit('/smile')
-    cy.wait(1000)
+    cy.wait(4000)
 
     downloadPng('smile.png').then((filename) => {
       cy.log(`saved ${filename}`)
