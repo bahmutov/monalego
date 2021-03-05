@@ -1,9 +1,6 @@
 // @ts-check
-const { compareOdiff, comparePixelmatch } = require('./diffs')
+const { comparePixelmatch } = require('./diffs')
 const path = require('path')
-const os = require('os')
-
-const osName = os.platform()
 
 /**
  * @type {Cypress.PluginConfig}
@@ -14,7 +11,7 @@ module.exports = (on, config) => {
   on('task', {
     async compare({ filename, options }) {
       const baseFolder = 'images'
-      const baseImage = path.join(baseFolder, osName, path.basename(filename))
+      const baseImage = path.join(baseFolder, path.basename(filename))
       const newImage = filename
       const diffImage = 'diff.png'
       console.log(
