@@ -135,11 +135,19 @@ describe('Lego face with clock', () => {
   })
 
   it('smiles every tick (refactor 2)', () => {
+    // a small utility function to control the clock
+    // and keep track of the current synthetic tick
     const controlClock = () => {
       let tick = 0
       cy.clock()
+      // return a function to advance the clock
       return (ms = 150) => {
+        // wrap it in cy.then() so this code runs
+        // as part of normal Cypress chain of scheduled commands
         return cy.then(() => {
+          // advance the clock and yield it to other commands
+          // so other commands could do
+          // tick(200).then(currentClockMs => ...)
           tick += ms
           cy.tick(tick)
           cy.wrap(tick)

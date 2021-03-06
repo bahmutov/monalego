@@ -1,6 +1,25 @@
 // @ts-check
 const { comparePixelmatch } = require('./diffs')
 const path = require('path')
+const fs = require('fs')
+const os = require('os')
+const osName = os.platform() // "darwin", "linux", "win32"
+
+/**
+ * Finds the good "master" image to compare the new image to.
+ * @param {string} filename The new image filename
+ */
+const findBaseImage = (filename) => {
+  const baseFolder = 'images'
+  const justFilename = path.basename(filename)
+  const platformSpecificBaseImage = path.join(baseFolder, osName, justFilename)
+  if (fs.existsSync(platformSpecificBaseImage)) {
+    return platformSpecificBaseImage
+  }
+  // assume the image across all platforms looks the same
+  const baseImage = path.join(baseFolder, justFilename)
+  return baseImage
+}
 
 /**
  * @type {Cypress.PluginConfig}
@@ -15,8 +34,9 @@ module.exports = (on, config) => {
         console.error(msg)
         throw new Error(msg)
       }
-      const baseFolder = 'images'
-      const baseImage = path.join(baseFolder, path.basename(filename))
+
+      const baseImage = findBaseImage(filename)
+
       const newImage = filename
       const baseImageWithoutExtension = path.basename(filename, '.png')
       const diffImage = `${baseImageWithoutExtension}-diff.png`
