@@ -11,7 +11,7 @@ const checkBrickValue = (value) => {
   // how do we know when the Lego canvas has finished updating?
   // https://github.com/pshihn/legra/issues/10
   // for now a couple of seconds wait seems to be enough
-  cy.wait(2000)
+  cy.wait(3000)
 
   // find the current brick size from the slider
   // and download the generated canvas
@@ -27,7 +27,7 @@ const checkBrickValue = (value) => {
 }
 
 describe('MonaLego', () => {
-  it('renders Lego', () => {
+  it('has range slider', () => {
     cy.visit('/')
     // let's confirm min and max
     cy.get('#range')
@@ -38,7 +38,10 @@ describe('MonaLego', () => {
       .should('have.attr', 'max')
       .then(parseInt)
       .should('be.gte', 20)
+  })
 
+  it('renders Lego', () => {
+    cy.visit('/')
     cy.log('**default brick value**')
     cy.get('#range')
       .invoke('val')
@@ -49,7 +52,10 @@ describe('MonaLego', () => {
           match: true,
         })
       })
+  })
 
+  it('renders Lego at different brick sizes', () => {
+    cy.visit('/')
     checkBrickValue(6)
     checkBrickValue(8)
     checkBrickValue(20)
