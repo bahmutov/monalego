@@ -1,6 +1,8 @@
 # MonaLego ![cypress version](https://img.shields.io/badge/cypress-6.6.0-brightgreen) [![ci status][ci image]][ci url] [![renovate-app badge][renovate-badge]][renovate-app]
 > Visual testing for HTML canvas drawing
 
+[![monalego](https://img.shields.io/endpoint?url=https://dashboard.cypress.io/badge/simple/vzoo2b&style=flat&logo=cypress)](https://dashboard.cypress.io/projects/vzoo2b/runs)
+
 ## Mona Lisa example
 
 This [Legra.js](https://legrajs.com/) demo copied from from [legra-monalisa.glitch.me/](https://legra-monalisa.glitch.me/)
