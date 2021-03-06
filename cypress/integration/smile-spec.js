@@ -23,7 +23,7 @@ describe('Lego face', () => {
     })
   })
 
-  it.only('smiles broadly', () => {
+  it('smiles broadly', () => {
     cy.visit('/smile')
 
     recurse(
