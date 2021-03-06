@@ -6,8 +6,10 @@
   "private": true,
   "scripts": {
     "test": "cypress open",
+    "cy:run": "cypress run",
     "start": "serve public",
-    "dev": "start-test 5000"
+    "dev": "start-test 5000",
+    "ci": "start-test 5000 cy:run"
   },
   "keywords": [],
   "author": "",
