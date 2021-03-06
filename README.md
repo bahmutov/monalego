@@ -1,4 +1,4 @@
-# MonaLego ![cypress version](https://img.shields.io/badge/cypress-6.5.0-brightgreen) [![ci status][ci image]][ci url] [![renovate-app badge][renovate-badge]][renovate-app]
+# MonaLego ![cypress version](https://img.shields.io/badge/cypress-6.6.0-brightgreen) [![ci status][ci image]][ci url] [![renovate-app badge][renovate-badge]][renovate-app]
 > Visual testing for HTML canvas drawing
 
 ## Mona Lisa example
