@@ -3,9 +3,8 @@ import { looksTheSame } from './utils'
 
 // testing https://www.chartjs.org/ example chart
 describe('Chartjs bar chart', () => {
-  it.only('renders the same chart', () => {
+  it('renders the same chart', () => {
     cy.visit('/bar')
-    cy.wait(2000)
     looksTheSame('bar-chart.png')
   })
 
