@@ -15,8 +15,19 @@ const compareOdiff = async (baseImage, newImage, diffImage, options) => {
 }
 
 const comparePixelmatch = (baseImage, newImage, diffImage) => {
-  const img1 = PNG.sync.read(fs.readFileSync(baseImage))
+  // load the new image first - because the base image might not exist yet
   const img2 = PNG.sync.read(fs.readFileSync(newImage))
+  console.log('new image %s has resolution %o', newImage, {
+    width: img2.width,
+    height: img2.height,
+  })
+
+  const img1 = PNG.sync.read(fs.readFileSync(baseImage))
+  console.log('base image %s has resolution %o', baseImage, {
+    width: img1.width,
+    height: img1.height,
+  })
+
   const { width, height } = img1
   const diff = new PNG({ width, height })
 
