@@ -15,7 +15,6 @@ describe('Chartjs bar chart', () => {
 
     cy.visit('/bar')
     cy.contains('button', 'Add Dataset').click()
-    cy.wait(2000)
     looksTheSame('bar-chart-added-dataset.png', log)
   })
 
@@ -25,7 +24,6 @@ describe('Chartjs bar chart', () => {
     cy.visit('/bar')
     cy.contains('button', 'Add Dataset').click()
     cy.contains('button', 'Add Dataset').click()
-    cy.wait(2000)
     looksTheSame('bar-chart-3-sets.png', log)
   })
 
@@ -34,17 +32,16 @@ describe('Chartjs bar chart', () => {
     const log = false
 
     cy.visit('/bar')
-    // looksTheSame('bar-chart.png', log)
+    looksTheSame('bar-chart.png', log)
 
     cy.contains('button', 'Add Dataset').click()
-    // looksTheSame('bar-chart-added-dataset.png', log)
+    looksTheSame('bar-chart-added-dataset.png', log)
 
     cy.contains('button', 'Add Dataset').click()
-    // looksTheSame('bar-chart-3-sets.png', log)
+    looksTheSame('bar-chart-3-sets.png', log)
 
     // remove first two data sets
     cy.contains('button', 'Remove Dataset').click().click()
-    cy.wait(2000)
     looksTheSame('bar-chart-third-dataset-only.png', log)
   })
 })
