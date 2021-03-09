@@ -16,7 +16,7 @@
   "license": "ISC",
   "devDependencies": {
     "cypress": "6.6.0",
-    "cypress-recurse": "1.7.0",
+    "cypress-recurse": "1.8.0",
     "odiff-bin": "2.1.0",
     "pixelmatch": "5.2.1",
     "pngjs": "6.0.0",
