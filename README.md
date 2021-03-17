@@ -25,6 +25,8 @@ An animated [Chart.js bar chart](https://www.chartjs.org/samples/latest/scriptab
 
 ![Visual tests against animated bar chart](./gif/bar.gif)
 
+Watch [the video](https://youtu.be/aeBclf9A92A) for more details
+
 [ci image]: https://github.com/bahmutov/monalego/workflows/main/badge.svg?branch=main
 [ci url]: https://github.com/bahmutov/monalego/actions
 [renovate-badge]: https://img.shields.io/badge/renovate-app-blue.svg
