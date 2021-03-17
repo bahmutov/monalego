@@ -29,7 +29,7 @@ describe('Chartjs bar chart', () => {
 
   // a single test can definitely perform multiple comparisons
   it('adds and removes data sets', () => {
-    const log = false
+    const log = true
 
     cy.visit('/bar')
     looksTheSame('bar-chart.png', log)
