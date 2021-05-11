@@ -15,7 +15,7 @@
   "author": "",
   "license": "ISC",
   "devDependencies": {
-    "cypress": "7.2.0",
+    "cypress": "7.3.0",
     "cypress-recurse": "1.8.1",
     "odiff-bin": "2.2.0",
     "pixelmatch": "5.2.1",
