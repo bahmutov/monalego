@@ -1,5 +1,5 @@
 /// <reference types="cypress" />
-import { downloadPng } from './utils'
+import { downloadPng, looksTheSame } from './utils'
 import { recurse } from 'cypress-recurse'
 
 describe('Lego face', () => {
@@ -35,5 +35,10 @@ describe('Lego face', () => {
       },
       ({ match }) => match,
     )
+  })
+
+  it('looks the same', () => {
+    cy.visit('/smile')
+    looksTheSame('smile.png', false)
   })
 })
