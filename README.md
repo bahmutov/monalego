@@ -19,6 +19,12 @@ Read [Canvas Visual Testing with Retries](https://glebbahmutov.com/blog/canvas-t
 
 ![Visual canvas testing](./gif/recurse-smile.gif)
 
+## Pixel match in the browser
+
+Look at [pixelmatch-spec.js](./cypress/integration/pixelmatch-spec.js) where we compare the canvas image to itself after N milliseconds using [pixelmatch](https://github.com/mapbox/pixelmatch#readme) library. This let's us retry until the canvas stabilizes and becomes static - which means the animation has finished.
+
+![Canvas becomes static](./images/canvas-static.gif)
+
 ## Bar chart
 
 An animated [Chart.js bar chart](https://www.chartjs.org/samples/latest/scriptable/bar.html) with multiple visual diffs against it. You can change the animation duration in [public/bar.html](./public/bar.html), the test should still work.
