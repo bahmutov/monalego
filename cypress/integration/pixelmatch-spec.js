@@ -70,7 +70,7 @@ function ensureCanvasStatic(selector = 'canvas') {
 
 describe('pixelmatch', () => {
   // for showing the diff only
-  it.skip('works in the browser', () => {
+  it('works in the browser', () => {
     cy.visit('/smile')
     cy.wait(400)
     cy.get('canvas').then(($canvas) => {
@@ -96,7 +96,7 @@ describe('pixelmatch', () => {
             threshold: 0.1,
           },
         )
-        console.log('pixelmatch', number)
+        cy.log('pixelmatch ' + number)
         ctx2.putImageData(diff, 0, 0)
       })
     })

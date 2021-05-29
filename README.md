@@ -25,6 +25,8 @@ Look at [pixelmatch-spec.js](./cypress/integration/pixelmatch-spec.js) where we 
 
 ![Canvas becomes static](./images/canvas-static.gif)
 
+Watch the video [Canvas image diffing in the browser using pixelmatch](https://youtu.be/WGigbAupExQ).
+
 ## Bar chart
 
 An animated [Chart.js bar chart](https://www.chartjs.org/samples/latest/scriptable/bar.html) with multiple visual diffs against it. You can change the animation duration in [public/bar.html](./public/bar.html), the test should still work.
