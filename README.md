@@ -35,6 +35,10 @@ An animated [Chart.js bar chart](https://www.chartjs.org/samples/latest/scriptab
 
 Watch [the video](https://youtu.be/aeBclf9A92A) for more details
 
+## Native screenshots
+
+This repository is showing how to use Chrome debugger protocol to capture the browser screenshot natively in Chrome browsers. See the [screenshot-spec.js](./cypress/integration/screenshot-spec.js) test file.
+
 [ci image]: https://github.com/bahmutov/monalego/workflows/main/badge.svg?branch=main
 [ci url]: https://github.com/bahmutov/monalego/actions
 [renovate-badge]: https://img.shields.io/badge/renovate-app-blue.svg
