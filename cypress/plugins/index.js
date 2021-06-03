@@ -3,6 +3,7 @@ const { comparePixelmatch } = require('./diffs')
 const path = require('path')
 const fs = require('fs')
 const os = require('os')
+const { PNG } = require('pngjs')
 const osName = os.platform() // "darwin", "linux", "win32"
 
 /**
@@ -54,6 +55,17 @@ module.exports = (on, config) => {
       const elapsed = finished - started
       console.log('visual diff took %dms', elapsed)
       return result
+    },
+
+    getImageResolution(filename) {
+      const img = PNG.sync.read(fs.readFileSync(filename))
+      console.log(`%s resolution %d x %d`, filename, img.width, img.height)
+      return {
+        width: img.width,
+        height: img.height,
+        filename,
+        format: 'PNG',
+      }
     },
   })
 }
