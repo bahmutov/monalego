@@ -22,6 +22,6 @@
     "pngjs": "6.0.0",
     "prettier": "2.3.1",
     "serve": "11.3.2",
-    "start-server-and-test": "1.12.4"
+    "start-server-and-test": "1.12.5"
   }
 }
