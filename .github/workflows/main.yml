@@ -22,7 +22,7 @@ jobs:
       # if tests fail
       - name: Save screenshots 🆙
         # https://github.com/actions/upload-artifact
-        uses: actions/upload-artifact@v2
+        uses: actions/upload-artifact@v3
         if: failure()
         with:
           name: images
