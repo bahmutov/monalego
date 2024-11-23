@@ -17,7 +17,7 @@
   "devDependencies": {
     "cypress": "9.7.0",
     "cypress-recurse": "1.35.3",
-    "odiff-bin": "3.1.2",
+    "odiff-bin": "3.2.0",
     "pixelmatch": "5.3.0",
     "pngjs": "7.0.0",
     "prettier": "3.3.3",
