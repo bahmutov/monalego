@@ -20,7 +20,7 @@
     "odiff-bin": "3.2.1",
     "pixelmatch": "5.3.0",
     "pngjs": "7.0.0",
-    "prettier": "3.6.0",
+    "prettier": "3.6.2",
     "serve": "12.0.1",
     "start-server-and-test": "2.0.12"
   }
